@@ -11,7 +11,6 @@ import (
 	"syscall"
 
 	"github.com/restic/restic/internal"
-
 	"github.com/restic/restic/internal/backend/b2"
 	"github.com/restic/restic/internal/backend/local"
 	"github.com/restic/restic/internal/backend/location"
@@ -19,6 +18,7 @@ import (
 	"github.com/restic/restic/internal/backend/s3"
 	"github.com/restic/restic/internal/backend/sftp"
 	"github.com/restic/restic/internal/backend/swift"
+	"github.com/restic/restic/internal/cache"
 	"github.com/restic/restic/internal/debug"
 	"github.com/restic/restic/internal/options"
 	"github.com/restic/restic/internal/repository"
@@ -314,6 +314,13 @@ func OpenRepository(opts GlobalOptions) (*repository.Repository, error) {
 	err = s.SearchKey(context.TODO(), opts.password, maxKeys)
 	if err != nil {
 		return nil, errors.Fatalf("unable to open repo: %v", err)
+	}
+
+	cache, err := cache.New(s.Config().ID, "")
+	if err != nil {
+		Warnf("unable to open cache: %v\n", err)
+	} else {
+		s.UseCache(cache)
 	}
 
 	return s, nil
