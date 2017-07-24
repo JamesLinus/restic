@@ -8,6 +8,12 @@
   revision = "371fbbdaa8987b715bdd21d6adc4c9b20155f748"
 
 [[projects]]
+  name = "cloud.google.com/go"
+  packages = ["compute/metadata"]
+  revision = "a5913b3f7deecba45e98ff33cefbac4fd204ddd7"
+  version = "v0.10.0"
+
+[[projects]]
   name = "github.com/elithrar/simple-scrypt"
   packages = ["."]
   revision = "47767683c6c880a9f89e48d376c70de7f5268951"
@@ -18,6 +24,12 @@
   packages = ["."]
   revision = "d3de07a94d22b4a0972deb4b96d790c2c0ce8333"
   version = "v1.28.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/protobuf"
+  packages = ["proto"]
+  revision = "0a4f71a498b7c4812f64969510bcb4eca251e33a"
 
 [[projects]]
   branch = "master"
@@ -111,13 +123,31 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/oauth2"
+  packages = [".","google","internal","jws","jwt"]
+  revision = "b53b38ad8a6435bd399ea76d0fa74f23149cca4e"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "c4489faa6e5ab84c0ef40d6ee878f7a030281f0f"
 
+[[projects]]
+  branch = "master"
+  name = "google.golang.org/api"
+  packages = ["gensupport","googleapi","googleapi/internal/uritemplates","storage/v1"]
+  revision = "295e4bb0ade057ae2cfb9876ab0b54635dbfcea4"
+
+[[projects]]
+  name = "google.golang.org/appengine"
+  packages = [".","internal","internal/app_identity","internal/base","internal/datastore","internal/log","internal/modules","internal/remote_api","internal/urlfetch","urlfetch"]
+  revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
+  version = "v1.0.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b4de858790fd06b6d1df19baa8a3246f23b2fded9ab6eb85325ddb3ee91003b8"
+  inputs-digest = "412aff1eb24d496cc0f8126ae52dd7f0a641e92c47b9ea7b00fd5fcc6c43fe96"
   solver-name = "gps-cdcl"
   solver-version = 1
